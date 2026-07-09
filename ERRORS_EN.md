@@ -2,7 +2,7 @@
 
 If the program closed before completing its task and displayed the message "Please refer to the information on GitHub or in the ERRORS_EN.md file to troubleshoot the program," it means an error occurred at some point. Find your error code below and try the solutions to restore the program's functionality
 
-=============================================================================================================================================================
+========================================================================================
 
 **ERROR-000**
 
