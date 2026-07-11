@@ -5,25 +5,16 @@ import sys
 
 #---------------------------------------------------------------------------------------------------------------------------------
 
-def Material_You(monitor):
-    # Find wallpaper path for later use | Узнаем расположение обоев для дальнейшего использования
-    result = subprocess.run(
-        "awww query", shell=True, capture_output=True, text=True
-        )
-    wallpaper = None
-    for line in result.stdout.splitlines():
-        clean_line = line.strip().lstrip(":").strip()
-        if clean_line.startswith(monitor) and "image:" in clean_line:
-            wallpaper = clean_line.split("image: ")[1].strip()
-            break
-    if wallpaper is None:
-        error("ERROR-001")
+def Material_You(monitor, wallpaper):
     # Creating a color palette | Создаем цветовую палитру
     wal_result = subprocess.run(
-        f"wal -n -s -q -i {wallpaper}", shell=True
+        ["wal", "-n", "-s", "-q", "-i", f"{wallpaper}"]
         )
     if wal_result.returncode != 0:
-        error("ERROR-002")
+        error("ERROR-001")
+
+#---------------------------------------------------------------------------------------------------------------------------------
+
     # Сhecking for folder existence | Проверка существования папки
     creating_a_folder = Path(monitor)
     if creating_a_folder.exists():
@@ -31,7 +22,7 @@ def Material_You(monitor):
     creating_a_folder.mkdir(parents=True, exist_ok=True)
     cache_wal_dir = Path.home() / ".cache" / "wal"
     if not cache_wal_dir.exists():
-        error("ERROR-003")
+        error("ERROR-002")
     shutil.copytree(cache_wal_dir, creating_a_folder, dirs_exist_ok=True)
 
 #---------------------------------------------------------------------------------------------------------------------------------
@@ -46,23 +37,27 @@ def error(code):
 #---------------------------------------------------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    # Get the number of monitors on the computer | Узнаем количество мониторов на компьютере
+    # Get all monitor info in one single call | Получаем всю информацию о мониторах за один вызов
     result = subprocess.run(
-        "awww query", shell=True, capture_output=True, text=True
+        ["awww", "query"] , capture_output=True, text=True
         )
-    monitors = []
+    monitor_wallpapers = {}
     for line in result.stdout.splitlines():
         if not line.split():
             continue
         clean_line = line.strip().lstrip(":").strip()
-        monitor_name = clean_line.split(":")[0].strip()
-        if monitor_name not in monitors:
-            monitors.append(monitor_name)
-    if not monitors:
+        current_monitor = clean_line.split(":")[0].strip()
+        if "image:" in clean_line:
+            current_wallpapers = clean_line.split("image: ")[1].strip()
+            monitor_wallpapers[current_monitor] = current_wallpapers
+    if not monitor_wallpapers:
         error("ERROR-000")
+
+#---------------------------------------------------------------------------------------------------------------------------------
+
     # Running the script to get the color palette | Запускаем скрипт на получение палитры цветов
-    for monitor in monitors:
-        Material_You(monitor)
+    for monitor, wallpaper in monitor_wallpapers.items():
+        Material_You(monitor, wallpaper)
     print("The color palettes have been created and are ready to use | Цветовые палитры созданы и готовы к использованию")
     print("Code сreator Denxak777 | Создатель кода Denxak777")
     
