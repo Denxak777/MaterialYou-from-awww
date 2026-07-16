@@ -26,3 +26,30 @@ If the program closed before completing its task and displayed the message "Plea
 * Solution:
     1. Check if the folder at ```~/.cache/wal/``` exists. If it is empty, try to find where the files are being saved, or contact me so we can solve this issue together
     2. If your config files are stored in a non-standard location, update the path in the code by changing ```cache_wal_dir = Path.home() / ".cache" / "wal"``` to your custom location.
+
+**ERROR-003**
+
+* Cause: The script navigated to the specific monitor's folder (e.g., ./DP-1/) but could not find the `colors-vscode.json` file, which should have been copied there from the ```pywal``` cache
+* Solution:
+    1. Make sure the palette generation step via Material_You() completed successfully without throwing ERROR-001 or ERROR-002
+    2. Verify that folders named after your active monitors were actually created in the project root and contain the ```colors-vscode.json``` file
+
+**ERROR-004**
+
+* Cause: The ```colors-vscode.json``` file exists, but Python failed to parse it (the file is empty, corrupted, or contains syntax errors that broke json.loads())
+* Solution:
+    1. Open the corrupted file in a text editor and check its structure
+    2. Ensure your version of ```pywal``` is generating templates correctly and didn't write an empty array due to a failed generation (which can happen with extremely dark or solid-color wallpapers)
+
+**ERROR-005**
+
+* Cause: Python was unable to create the folder structure at ~/.vscode/extensions/materialyou_[monitor_name]/themes/
+* Solution:
+    1. Check the write permissions for the `.vscode` directory in your home folder. Run ```ls -la ~/.vscode``` in your terminal to ensure your current user has full write access
+
+**ERROR-006**
+
+* Cause: The script failed to write the final ```package.json``` manifest or the ```theme.json``` color scheme to disk, even though the folders were created successfully
+* Solution:
+    1. Make sure your system drive is not full
+    2. Ensure the files are not locked by another process (e.g., if VS Code is running and actively locking the extension files while trying to reload the theme)

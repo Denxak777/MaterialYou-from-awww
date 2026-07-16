@@ -40,7 +40,7 @@ Ready-to-use Configs: Copies the entire pywal cache (CSS, Xresources, JSON, etc.
 1. Python3
 2. Linux ***(Preferably on Arch Linux | Желательно на Arch Linux)***
 3. awww ***(With Hyprland for better work | С Hyprland для лучшей работы)***
-4. pywal
+4. pywal16
 
 ========================================================================================
 
@@ -51,7 +51,7 @@ Install awww and pywal | Установите awww и pywal
 Arch Linux:
 ```bash
 sudo pacman -Sy
-sudo pacman -S awww python-pywal
+yay -S awww python-pywal16
 ```
 
 **Note | Важно**
@@ -60,7 +60,7 @@ This project was developed and tested on Arch Linux. Installation instructions i
 
 Ubuntu / Debian / Fedora:
 ```bash
-sudo pip3 install pywal
+pip3 install pywal16
 ```
 [Official project awww | Официальный проект awww](https://codeberg.org/LGFae/awww) - ***The author's official project. Please read how to properly install it on your distribution | Официальный проект автора. Пожалуйста, ознакомьтесь с инструкцией по правильной установке в вашем дистрибутиве***
 
@@ -69,7 +69,7 @@ Install and run "MaterialYou from awww" | Установите и запусти
 ```bash
 git clone https://github.com/Denxak777/MaterialYou-from-awww.git
 cd MaterialYou-from-awww
-python3 MaterialYou.py
+./main.py
 ```
 
 ========================================================================================
@@ -86,10 +86,14 @@ If you encounter an error, check the guide or message me to solve the issue | Е
 <table>
   <tr>
     <td width="50%"><img src="Photo/Photo1.png" alt="Preview 1"></td>
-    <td width="50%"><img src="Photo/Photo2.png" alt="Preview 2"></td>
+    <td width="50%"><img src="Photo/Photo3.png" alt="Preview 2"></td>
   </tr>
   <tr>
-    <td width="50%"><img src="Photo/Photo3.png" alt="Preview 3"></td>
+    <td width="50%"><img src="Photo/Photo2.png" alt="Preview 3"></td>
     <td width="50%"><img src="Photo/Photo4.png" alt="Preview 4"></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="Photo/Photo6.png" alt="Preview 3"></td>
+    <td width="50%"><img src="Photo/Photo5.png" alt="Preview 4"></td>
   </tr>
 </table>
