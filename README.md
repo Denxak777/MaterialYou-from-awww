@@ -81,6 +81,12 @@ If you encounter an error, check the guide or message me to solve the issue | Е
 [Error Troubleshooting Guide](ERRORS_EN.md) | [Инструкция по исправлению ошибок](ERRORS_RU.md)
 
 ========================================================================================
+
+**Additional functions | Дополнительные функции**
+
+1. Color theme generation for VS code | Генерация цветовых тем для VS code
+
+========================================================================================
 **Screenshots | Скриншоты**
 
 <table>
