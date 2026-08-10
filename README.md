@@ -37,7 +37,7 @@ Ready-to-use Configs: Copies the entire pywal cache (CSS, Xresources, JSON, etc.
 ========================================================================================
 
 **Dependencies | Зависимости**
-1. Python3
+1. Python 3.10+
 2. Linux ***(Preferably on Arch Linux | Желательно на Arch Linux)***
 3. awww ***(With Hyprland for better work | С Hyprland для лучшей работы)***
 4. pywal16
@@ -82,9 +82,9 @@ If you encounter an error, check the guide or message me to solve the issue | Е
 
 ========================================================================================
 
-**Additional functions | Дополнительные функции**
+**Generating color themes for applications | Генерация тем для программ**
 
-1. Color theme generation for VS code | Генерация цветовых тем для VS code
+1. Visual Studio Code / VSCodium
 
 ========================================================================================
 **Screenshots | Скриншоты**

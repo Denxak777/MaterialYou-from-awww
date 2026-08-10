@@ -5,7 +5,7 @@
 import subprocess
 from Scripts.MaterialYou import Material_You
 from Scripts.Error import error
-from Scripts.VS_code import vs_code
+from Scripts.Additional_functions import system_check
 
 #---------------------------------------------------------------------------------------------------------------------------------
 
@@ -31,16 +31,15 @@ if __name__ == "__main__":
 
 #---------------------------------------------------------------------------------------------------------------------------------
 
-    # Offer to apply a theme for VS Code | Предложить применить тему для VS code
+    # Offer to additional functions | Предложить дополнительные фунуции
     while True:
-        vscode_question = input("Apply the VS Code theme? [y|N]" "|" "Применить тему для VS Code? [y|N]").strip().lower()
-        if vscode_question.startswith("y"):
-            for monitor, wallpaper in monitor_wallpapers.items():
-                vs_code(monitor)
+        functions = input("Open additional functions? [y|N]" "|" "Открыть допольнительные функции? [y|N]").strip().lower()
+        if functions.startswith("y"):
+            system_check(monitor_wallpapers)
             break
-        elif vscode_question.startswith("n"):
+        elif functions.startswith("n"):
             break
-        elif vscode_question == "":
+        elif functions == "":
             break
 
 #---------------------------------------------------------------------------------------------------------------------------------

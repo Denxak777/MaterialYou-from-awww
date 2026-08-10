@@ -53,3 +53,15 @@ If the program closed before completing its task and displayed the message "Plea
 * Solution:
     1. Make sure your system drive is not full
     2. Ensure the files are not locked by another process (e.g., if VS Code is running and actively locking the extension files while trying to reload the theme)
+
+**ERROR-007**
+
+* Cause: Python was unable to identify the Linux distribution installed on the PC
+* Solution:
+    1. Check your Python version and upgrade to a version higher than 3.10 if you are using an older version
+
+**ERROR-008**
+
+* Cause: The program was unable to execute additional functionality
+* Solution:
+    1. Ensure that the program was installed correctly
